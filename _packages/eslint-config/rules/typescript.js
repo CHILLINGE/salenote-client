@@ -38,6 +38,7 @@ module.exports = {
             caughtErrors: "all",
           },
         ],
+        "@typescript-eslint/no-explicit-any": "error",
       },
     },
   ],

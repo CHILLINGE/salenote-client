@@ -1,0 +1,4 @@
+{
+  "include": ["site/*"],
+  "exclude": ["**/node_modules"]
+}
