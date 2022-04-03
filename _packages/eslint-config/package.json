@@ -1,0 +1,14 @@
+{
+  "name": "@salenote/eslint-config",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": "true",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-simple-import-sort": "*",
+    "typescript": "*"
+  }
+}
