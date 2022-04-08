@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["./rules/typescript"].map(require.resolve),
+  extends: ["./rules/typescript", "./rules/prettier", "./rules/style"].map(require.resolve),
   parser: require.resolve("@typescript-eslint/parser"),
   env: {
     node: true,
