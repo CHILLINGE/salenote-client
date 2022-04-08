@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["./rules/typescript", "./rules/prettier", "./rules/style"].map(require.resolve),
+  extends: ["./rules/style", "./rules/typescript", "./rules/prettier"].map(require.resolve),
   parser: require.resolve("@typescript-eslint/parser"),
   env: {
     node: true,
@@ -12,5 +12,4 @@ module.exports = {
       modules: true,
     },
   },
-  rules: {},
 };

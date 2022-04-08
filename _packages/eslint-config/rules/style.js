@@ -1,5 +1,6 @@
 module.exports = {
   plugins: ["simple-import-sort"],
+  extends: ["eslint:recommended"],
   rules: {
     "no-unused-vars": [
       "error",
