@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "api-clean": "rm -rf ./__api__",
+    "api-gen": "openapi-generator-cli generate -i ./api.yaml -o ./__api__ -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true"
   },
   "dependencies": {
     "next": "12.1.4",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@openapitools/openapi-generator-cli": "^2.5.1",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-interactions": "^6.4.20",
