@@ -10,7 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "api-clean": "rm -rf ./__api__",
-    "api-gen": "openapi-generator-cli generate -i ./api.yaml -o ./__api__ -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true"
+    "api-gen": "openapi-generator-cli generate -i ./api-spec.yaml -o ./__api__ -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true",
+    "api-run-all": "npm-run-all api-clean api-gen"
   },
   "dependencies": {
     "next": "12.1.4",
@@ -32,6 +33,7 @@
     "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.4",
     "eslint": "8.12.0",
-    "eslint-config-next": "12.1.4"
+    "eslint-config-next": "12.1.4",
+    "npm-run-all": "^4.1.5"
   }
 }
