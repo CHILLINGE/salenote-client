@@ -17,7 +17,6 @@ export function TopImage({ imageUrl }: TopImageProps) {
 const ThumbnailWrapper = styled.div`
   width: 100vw;
   max-width: 100%;
-  height: 16.7rem;
 `;
 
 const Thumbnail = styled.div`

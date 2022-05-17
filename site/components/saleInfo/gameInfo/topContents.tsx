@@ -49,8 +49,8 @@ const GameName = styled.h1`
   font-size: 1.8rem;
   line-height: 2.7rem;
   letter-spacing: -0.02rem;
-  margin: 0 0 1.4rem 0;
-  /* color: white; */
+  margin: 0.6rem 0 1.4rem 0;
+  color: white;
 `;
 
 const InfoList = styled.div`
@@ -73,11 +73,11 @@ const InfoWrapper = styled.div`
 `;
 
 const Category = styled.span`
-  color: ${Colors.DarkGray1};
+  color: ${Colors.LightGray};
   margin-right: 1.2rem;
 `;
 
 const Content = styled.span`
-  /* color: white; */
+  color: white;
   flex-wrap: wrap;
 `;
