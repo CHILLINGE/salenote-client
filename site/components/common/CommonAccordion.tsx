@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { ReactNode } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import styled from "styled-components";
 
 import Colors from "../../styles/colors";
@@ -14,15 +14,7 @@ export function CommonAccordion({ summary, description }: CommonAccordionProps) 
     <StyledCommonAccordion>
       <SummaryWrapper>
         <Summary>{summary}</Summary>
-        <ImageWrapper>
-          <Image
-            src="/site/public/assets/icons/commonToggleArrowIcon.svg"
-            alt="commonToggleIcon"
-            width={24}
-            height={24}
-            quality={100}
-          />
-        </ImageWrapper>
+        <MdKeyboardArrowDown fontSize={24} />
       </SummaryWrapper>
       <Description>{description}</Description>
     </StyledCommonAccordion>
@@ -36,7 +28,7 @@ const StyledCommonAccordion = styled.details`
 `;
 
 const SummaryWrapper = styled.summary`
-  height: 3.1rem;
+  /* height: 3.1rem; */
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.9rem;
@@ -45,12 +37,6 @@ const SummaryWrapper = styled.summary`
 
 const Summary = styled.h3`
   font-size: 1.5rem;
-  line-height: 2.2rem;
-`;
-
-const ImageWrapper = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
 `;
 
 const Description = styled.p`
