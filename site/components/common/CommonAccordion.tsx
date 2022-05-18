@@ -16,11 +16,12 @@ export function CommonAccordion({ summary, description }: CommonAccordionProps) 
     setIsOpen(!isOpen);
   };
 
+  console.log(isOpen);
   return (
     <StyledCommonAccordion>
       <SummaryWrapper onClick={handleClick} isOpen={isOpen}>
         <Summary>{summary}</Summary>
-        <MdKeyboardArrowDown fontSize={24} />
+        <MdKeyboardArrowDown fontSize={24} color="white" />
       </SummaryWrapper>
       <Description isOpen={isOpen}>{description}</Description>
     </StyledCommonAccordion>
@@ -52,21 +53,25 @@ const SummaryWrapper = styled.div<{ isOpen: boolean }>`
 
 const Summary = styled.h3`
   font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
   margin: 0;
 `;
 
 const Description = styled.p<{ isOpen: boolean }>`
-  display: flex;
+  display: none;
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 140%;
-  background-color: ${Colors.Gray1};
+  background-color: ${Colors.TextBackground};
+  color: white;
+  border: 1px solid ${Colors.Blue};
   padding: 1rem 1.1rem 1rem 1.2rem;
   margin: 0 1.6rem;
 
   ${({ isOpen }) =>
     isOpen &&
     css`
-      display: none;
+      display: flex;
     `};
 `;
