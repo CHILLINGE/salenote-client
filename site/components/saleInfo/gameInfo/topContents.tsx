@@ -49,11 +49,13 @@ const GameName = styled.h1`
   font-size: 1.8rem;
   line-height: 2.7rem;
   letter-spacing: -0.02rem;
-  margin: 0.6rem 0 1.4rem 0;
+  margin: 0.6rem 1.6rem 1.4rem;
   color: white;
 `;
 
 const InfoList = styled.div`
+  margin: 0 1.6rem;
+
   & > * {
     margin-bottom: 0.4rem;
   }
