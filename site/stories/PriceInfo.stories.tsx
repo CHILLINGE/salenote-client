@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { PriceInfo, PriceInfoProps } from "../components/saleInfo/priceInfo";
+import { PriceInfo, PriceInfoProps } from "../components/saleInfo/PriceInfo";
 
 export default {
   title: "PriceInfo",
