@@ -12,4 +12,6 @@ const Template: Story<SearchTextInputProps> = (args) => {
 };
 
 export const Basic = Template.bind({});
-Basic.args = {} as SearchTextInputProps;
+Basic.args = {
+  placeholder: "어떤 게임의 할인정보를 찾고 계세요?",
+} as SearchTextInputProps;
