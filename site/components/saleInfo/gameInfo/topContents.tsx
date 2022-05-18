@@ -1,3 +1,4 @@
+import { format, utcToZonedTime } from "date-fns-tz";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -22,8 +23,15 @@ export function TopContents({ name, developer, publisher, releaseDate }: TopCont
     setInfoList([
       { categoryName: "개발사", content: developer.join(", ") },
       { categoryName: "배급사", content: publisher.join(", ") },
-      { categoryName: "출시일", content: releaseDate },
+      { categoryName: "출시일", content: transTimezone(releaseDate) },
     ]);
+  };
+
+  const transTimezone = (time: string) => {
+    const date = new Date(time);
+    const timeZone = "Asia/Seoul";
+    const transTime = utcToZonedTime(date, timeZone);
+    return String(format(transTime, "yyyy-MM-dd"));
   };
 
   useEffect(() => {
