@@ -7,5 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     html {
         font-family: 'Poppins', 'Spoqa Han Sans Neo', -apple-system, 'Segoe UI', sans-serif;
         font-size: 62.5%;
+        
+    }
+
+    * {
+        box-sizing: border-box;
     }
 `;
