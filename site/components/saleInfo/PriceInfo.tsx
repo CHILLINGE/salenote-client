@@ -36,7 +36,7 @@ const StyledPriceInfo = styled.article`
 const Title = styled.h3`
   font-size: 1.5rem;
   font-weight: 400;
-  color: white;
+  color: ${Colors.White};
   letter-spacing: -0.02em;
   margin: 0;
 `;
@@ -71,5 +71,5 @@ const SalePrice = styled.span`
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 2.7rem;
-  color: white;
+  color: ${Colors.White};
 `;
