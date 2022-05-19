@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { ReactNode } from "react";
-import styled from "styled-components";
+import { ReactNode, useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import styled, { css } from "styled-components";
 
 import Colors from "../../styles/colors";
 
@@ -10,53 +10,68 @@ export interface CommonAccordionProps {
 }
 
 export function CommonAccordion({ summary, description }: CommonAccordionProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  console.log(isOpen);
   return (
     <StyledCommonAccordion>
-      <SummaryWrapper>
+      <SummaryWrapper onClick={handleClick} isOpen={isOpen}>
         <Summary>{summary}</Summary>
-        <ImageWrapper>
-          <Image
-            src="/site/public/assets/icons/commonToggleArrowIcon.svg"
-            alt="commonToggleIcon"
-            width={24}
-            height={24}
-            quality={100}
-          />
-        </ImageWrapper>
+        <MdKeyboardArrowDown fontSize={24} color="white" />
       </SummaryWrapper>
-      <Description>{description}</Description>
+      <Description isOpen={isOpen}>{description}</Description>
     </StyledCommonAccordion>
   );
 }
 
-const StyledCommonAccordion = styled.details`
+const StyledCommonAccordion = styled.section`
   width: 100%;
-  padding: 1.6rem 0;
-  cursor: pointer;
 `;
 
-const SummaryWrapper = styled.summary`
-  height: 3.1rem;
+const SummaryWrapper = styled.div<{ isOpen: boolean }>`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0.9rem;
+  align-items: center;
+  padding: 0 1.2rem 0.9rem 1.6rem;
   list-style: none;
+  cursor: pointer;
+
+  & > svg {
+    transition: all ease 0.3s 0.1s;
+
+    ${({ isOpen }) =>
+      isOpen &&
+      css`
+        transform: rotate(180deg);
+      `}
+  }
 `;
 
 const Summary = styled.h3`
   font-size: 1.5rem;
-  line-height: 2.2rem;
+  font-weight: 400;
+  color: white;
+  margin: 0;
 `;
 
-const ImageWrapper = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-`;
-
-const Description = styled.p`
-  display: flex;
+const Description = styled.p<{ isOpen: boolean }>`
+  display: none;
   font-size: 1.3rem;
+  font-weight: 400;
   line-height: 140%;
-  background-color: ${Colors.Gray1};
+  background-color: ${Colors.TextBackground};
+  color: white;
+  border: 1px solid ${Colors.Blue};
   padding: 1rem 1.1rem 1rem 1.2rem;
+  margin: 0 1.6rem;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      display: flex;
+    `};
 `;
