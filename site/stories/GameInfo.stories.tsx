@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { GameInfo, GameInfoProps } from "../components/saleInfo/gameInfo";
+import { GameInfo, GameInfoProps } from "../components/gameInfo";
 
 export default {
   component: GameInfo,

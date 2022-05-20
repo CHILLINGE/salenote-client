@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Colors from "../../../styles/colors";
+import Colors from "../../styles/colors";
 import { TopContents } from "./topContents";
 import { TopImage } from "./topImage";
 

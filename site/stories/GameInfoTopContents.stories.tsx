@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { TopContents, TopContentsProps } from "../components/saleInfo/gameInfo/topContents";
+import { TopContents, TopContentsProps } from "../components/gameInfo/topContents";
 
 export default {
   component: TopContents,

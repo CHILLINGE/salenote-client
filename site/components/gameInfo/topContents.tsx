@@ -2,7 +2,7 @@ import { format, utcToZonedTime } from "date-fns-tz";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import Colors from "../../../styles/colors";
+import Colors from "../../styles/colors";
 
 export interface TopContentsProps {
   name: string;
