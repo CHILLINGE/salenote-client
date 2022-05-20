@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { StoreLink, StoreLinkProps } from "../components/gameInfo/storeLink";
+import { StoreLink, StoreLinkProps } from "./storeLink";
 
 export default {
   title: "StoreLink",

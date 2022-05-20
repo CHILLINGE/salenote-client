@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { TopImage, TopImageProps } from "../components/gameInfo/topImage";
+import { TopImage, TopImageProps } from "./topImage";
 
 export default {
   component: TopImage,
