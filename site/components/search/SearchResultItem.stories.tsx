@@ -1,9 +1,9 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { SearchResultItem, SearchResultItemProps } from "../components/search/SearchResultItem";
+import { SearchResultItem, SearchResultItemProps } from "./SearchResultItem";
 
 export default {
-  title: "SearchResultItem",
+  title: "search/SearchResultItem",
   component: SearchResultItem,
 } as Meta;
 
