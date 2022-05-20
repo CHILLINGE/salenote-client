@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import Colors from "../../styles/colors";
-// import { TopContents } from "./topContents";
-// import { TopImage } from "./TopImage";
+import { GameDetails } from "./GameDetails";
+import { GameImage } from "./GameImage";
 
 export interface GameInfoProps {
   name: string;
@@ -13,11 +13,10 @@ export interface GameInfoProps {
 }
 
 export function GameInfo({ name, developer, publisher, releaseDate, imageUrl }: GameInfoProps) {
-  console.log(name, developer, publisher, releaseDate, imageUrl);
   return (
     <StyledRoot>
-      {/* <TopImage imageUrl={imageUrl} />
-      <TopContents name={name} developer={developer} publisher={publisher} releaseDate={releaseDate} /> */}
+      <GameImage imageUrl={imageUrl} />
+      <GameDetails name={name} developer={developer} publisher={publisher} releaseDate={releaseDate} />
     </StyledRoot>
   );
 }
