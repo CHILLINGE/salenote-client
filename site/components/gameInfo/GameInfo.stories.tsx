@@ -16,4 +16,6 @@ Default.args = {
   publisher: ["Valve"],
   releaseDate: "2000-10-31T15:00:00Z",
   imageUrl: "https://cdn.akamai.steamstatic.com/steam/apps/865360/header.jpg?t=1652179790",
+  seasonSaleCombo: "아주높음",
+  nextSeasonSaleKey: "autumn",
 } as GameInfoProps;
