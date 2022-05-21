@@ -2,9 +2,9 @@ import { format, utcToZonedTime } from "date-fns-tz";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import Colors from "../../../styles/colors";
+import Colors from "../../styles/colors";
 
-export interface TopContentsProps {
+export interface GameDetailsProps {
   name: string;
   developer: string[];
   publisher: string[];
@@ -16,7 +16,7 @@ interface Info {
   content: string;
 }
 
-export function TopContents({ name, developer, publisher, releaseDate }: TopContentsProps) {
+export function GameDetails({ name, developer, publisher, releaseDate }: GameDetailsProps) {
   const [infoList, setInfoList] = useState<Info[]>();
 
   const setInfoData = () => {

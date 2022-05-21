@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export interface TopImageProps {
+export interface GameImageProps {
   imageUrl: string;
 }
 
-export function TopImage({ imageUrl }: TopImageProps) {
+export function GameImage({ imageUrl }: GameImageProps) {
   return (
     <ThumbnailWrapper>
       <Thumbnail>
-        <GameImage src={imageUrl} alt="gameImage" />
+        <Image src={imageUrl} alt="gameImage" />
       </Thumbnail>
     </ThumbnailWrapper>
   );
@@ -25,7 +25,7 @@ const Thumbnail = styled.div`
   align-items: center;
 `;
 
-const GameImage = styled.img`
+const Image = styled.img`
   width: 100%;
   height: auto;
 `;
