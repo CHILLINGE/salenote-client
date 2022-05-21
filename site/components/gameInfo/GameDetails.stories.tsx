@@ -1,13 +1,13 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { TopContents, TopContentsProps } from "../components/saleInfo/gameInfo/topContents";
+import { GameDetails, GameDetailsProps } from "./GameDetails";
 
 export default {
-  component: TopContents,
+  component: GameDetails,
   title: "TopContents",
 } as Meta;
 
-const Template: Story<TopContentsProps> = (args) => <TopContents {...args} />;
+const Template: Story<GameDetailsProps> = (args) => <GameDetails {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -15,4 +15,4 @@ Default.args = {
   developer: ["Valve"],
   publisher: ["Valve"],
   releaseDate: "2000-10-31T15:00:00Z",
-} as TopContentsProps;
+} as GameDetailsProps;
