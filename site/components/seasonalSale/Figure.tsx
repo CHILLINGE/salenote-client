@@ -11,8 +11,18 @@ export interface FigureProps {
 export function Figure({ activation, figureName }: FigureProps) {
   return (
     <StyledRoot>
-      {activation && <MdFastRewind size={14} color={Colors.Green} />}
-      <FigureCircle activation={activation}></FigureCircle>
+      {activation ? (
+        <>
+          <MdFastRewind size={14} color={Colors.Green} />
+          <CircleWrapper>
+            <OutCircle></OutCircle>
+            <Circle activation={activation}></Circle>
+          </CircleWrapper>
+        </>
+      ) : (
+        <Circle activation={activation}></Circle>
+      )}
+
       <FigureName activation={activation}>{figureName}</FigureName>
     </StyledRoot>
   );
@@ -29,7 +39,22 @@ const StyledRoot = styled.div`
   }
 `;
 
-const FigureCircle = styled.div<{ activation: boolean }>`
+const CircleWrapper = styled.div`
+  position: relative;
+`;
+
+const OutCircle = styled.div`
+  position: absolute;
+  left: -0.2rem;
+  top: 0.2rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 5rem;
+  background-color: ${Colors.Green};
+  opacity: 50%;
+`;
+
+const Circle = styled.div<{ activation: boolean }>`
   width: 1rem;
   height: 1rem;
   border-radius: 5rem;
@@ -39,7 +64,6 @@ const FigureCircle = styled.div<{ activation: boolean }>`
     activation &&
     css`
       margin-top: 0.4rem;
-      box-shadow: 0 0 0.2rem 0.2rem rgba(206, 242, 130, 0.5);
       background-color: ${Colors.Green};
     `};
 `;
@@ -49,5 +73,5 @@ const FigureName = styled.div<{ activation: boolean }>`
   font-size: 1.3rem;
   letter-spacing: 0.02rem;
   color: ${({ activation }) => (activation ? Colors.Green : Colors.Disabled)};
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
 `;

@@ -69,7 +69,7 @@ const Title = styled.h4`
 `;
 
 const FigureWrapper = styled.section`
-  padding: 0 2.7rem;
+  padding: 0 1rem 0 2.1rem;
   display: flex;
   justify-content: space-between;
   z-index: 3;
@@ -77,13 +77,13 @@ const FigureWrapper = styled.section`
 
 const LineWrapper = styled.div`
   position: absolute;
-  bottom: 4rem;
+  bottom: 4.1rem;
   width: 100%;
 `;
 
 const Line = styled.div`
   height: 1px;
-  margin: 0 4.7rem 0 4rem;
+  margin: 0 3rem;
   background-color: ${Colors.Disabled};
   z-index: 1;
 `;
