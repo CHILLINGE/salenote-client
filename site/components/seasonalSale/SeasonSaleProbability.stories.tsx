@@ -14,5 +14,6 @@ const Template: Story<SeasonSaleProbabilityProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   seasonSaleCombo: "아주높음",
-  nextSeasonName: "가을 세일 (Autumn Sale)",
+  nextSeasonSaleKey: "autumn",
+  nextSeasonSaleName: "Autumn Sale",
 } as SeasonSaleProbabilityProps;
