@@ -36,7 +36,7 @@ const StyledRoot = styled.article`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 0 1.6rem;
   height: 13rem;
   background-color: ${Colors.ContentBackground};
 `;
