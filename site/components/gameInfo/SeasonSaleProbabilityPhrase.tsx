@@ -34,7 +34,7 @@ export function SeasonSaleProbabilityPhrase({ seasonSaleCombo, nextSeasonSaleKey
   return <StyledProbabilityPhrase>{formattingPhrase()}</StyledProbabilityPhrase>;
 }
 
-const StyledProbabilityPhrase = styled.text`
+const StyledProbabilityPhrase = styled.div`
   margin-top: 2rem;
   margin-left: 1.6rem;
   font-weight: 400;
