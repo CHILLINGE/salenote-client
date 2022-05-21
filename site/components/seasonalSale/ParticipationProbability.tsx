@@ -25,9 +25,9 @@ export function ParticipationProbability({
           <Figure key={index} activation={figureName === seasonSaleCombo} figureName={figureName} />
         ))}
       </FigureWrapper>
-      <FigureLine>
+      <LineWrapper>
         <Line></Line>
-      </FigureLine>
+      </LineWrapper>
     </StyledRoot>
   );
 }
@@ -75,7 +75,7 @@ const FigureWrapper = styled.section`
   z-index: 3;
 `;
 
-const FigureLine = styled.div`
+const LineWrapper = styled.div`
   position: absolute;
   bottom: 4rem;
   width: 100%;
