@@ -16,7 +16,6 @@ export function CommonAccordion({ summary, description }: CommonAccordionProps) 
     setIsOpen(!isOpen);
   };
 
-  console.log(isOpen);
   return (
     <StyledCommonAccordion>
       <SummaryWrapper onClick={handleClick} isOpen={isOpen}>
