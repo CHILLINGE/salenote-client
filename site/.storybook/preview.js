@@ -1,11 +1,12 @@
 import { GlobalStyle } from "../styles/GlobalStyle";
+import { APIProvider } from "../gateway/hook";
 
 export const decorators = [
   (Story) => (
-    <>
+    <APIProvider type="mock">
       <GlobalStyle />
       <Story />
-    </>
+    </APIProvider>
   ),
 ];
 
