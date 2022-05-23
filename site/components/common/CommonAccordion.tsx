@@ -29,13 +29,14 @@ export function CommonAccordion({ summary, description }: CommonAccordionProps) 
 
 const StyledCommonAccordion = styled.section`
   width: 100%;
+  margin-bottom: 1.4rem;
 `;
 
 const SummaryWrapper = styled.div<{ isOpen: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.2rem 0.9rem 1.6rem;
+  padding: 0 1.2rem 0 1.6rem;
   list-style: none;
   cursor: pointer;
 
@@ -66,7 +67,7 @@ const Description = styled.p<{ isOpen: boolean }>`
   color: white;
   border: 1px solid ${Colors.Blue};
   padding: 1rem 1.1rem 1rem 1.2rem;
-  margin: 0 1.6rem;
+  margin: 1rem 1.6rem 0;
 
   ${({ isOpen }) =>
     isOpen &&
