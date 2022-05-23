@@ -1,9 +1,9 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { SearchTextInput, SearchTextInputProps } from "../components/search/SearchTextInput";
+import { SearchTextInput, SearchTextInputProps } from "./SearchTextInput";
 
 export default {
-  title: "SearchTextInput",
+  title: "search/SearchTextInput",
   component: SearchTextInput,
 } as Meta;
 
