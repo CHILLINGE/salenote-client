@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@nivo/bar": "^0.78.0",
+    "@nivo/core": "^0.78.0",
     "@openapitools/openapi-generator-cli": "^2.5.1",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
