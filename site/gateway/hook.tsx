@@ -8,6 +8,7 @@ const APIGatewayContext = createContext({
 
 interface APIProviderProps {
   children: ReactNode;
+  type: "mock" | "real";
 }
 
 export function APIProvider(props: APIProviderProps) {

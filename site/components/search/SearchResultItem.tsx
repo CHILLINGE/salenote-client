@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Colors from "../../styles/colors";
 
 export interface SearchResultItemProps {
+  className?: string;
+
   title: string;
   thumbnail?: string;
   price: PriceInfo;
@@ -15,10 +17,10 @@ interface PriceInfo {
 }
 
 export function SearchResultItem(props: SearchResultItemProps) {
-  const { title, thumbnail, price } = props;
+  const { title, thumbnail, price, className } = props;
 
   return (
-    <StyledSearchResultItem>
+    <StyledSearchResultItem className={className}>
       <ThumbnailWrapper>
         {thumbnail ? <Thumbnail src={thumbnail} alt="Thumbnail Image" /> : <ThumbnailPlaceholder />}
       </ThumbnailWrapper>
