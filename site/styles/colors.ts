@@ -6,6 +6,7 @@ const enum Colors {
   Green = "#C6F06B",
   LightGray = "#A7A9C3",
   TextBackground = "#2A2D65",
+  ContentBackground = "#131533",
   White = "#FFFFFF",
 }
 
