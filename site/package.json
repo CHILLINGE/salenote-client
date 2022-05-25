@@ -14,10 +14,12 @@
     "api-run-all": "npm-run-all api-clean api-gen"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
+    "react-query": "^3.39.0",
     "styled-components": "^5.3.5",
     "styled-reset": "^4.3.4"
   },
@@ -32,6 +34,7 @@
     "@storybook/addon-links": "^6.4.20",
     "@storybook/react": "^6.4.20",
     "@storybook/testing-library": "^0.0.9",
+    "@types/lodash": "^4.14.182",
     "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.4",
     "date-fns": "^2.28.0",

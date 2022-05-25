@@ -11,10 +11,10 @@ export interface SearchTextInputProps {
 }
 
 export function SearchTextInput(props: SearchTextInputProps) {
-  const { onChange, value, placeholder } = props;
+  const { onChange, value, placeholder, className } = props;
 
   return (
-    <StyledSearchTextInput>
+    <StyledSearchTextInput className={className}>
       <SearchIcon />
       <TextInput value={value} onChange={(e) => onChange?.(e.target.value)} placeholder={placeholder} />
     </StyledSearchTextInput>

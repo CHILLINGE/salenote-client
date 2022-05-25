@@ -5,7 +5,7 @@ import { GlobalStyle } from "../styles/GlobalStyle";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <APIProvider>
+    <APIProvider type="mock">
       <GlobalStyle />
       <Component {...pageProps} />
     </APIProvider>
