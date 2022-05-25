@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@nivo/line": "^0.79.1",
     "@nivo/bar": "^0.78.0",
     "@nivo/core": "^0.78.0",
     "@openapitools/openapi-generator-cli": "^2.5.1",
