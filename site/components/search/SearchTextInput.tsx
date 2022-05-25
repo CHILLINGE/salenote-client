@@ -2,6 +2,7 @@ import { MdSearch } from "react-icons/md";
 import styled from "styled-components";
 
 import Colors from "../../styles/colors";
+import Fonts from "../../styles/fonts";
 
 export interface SearchTextInputProps {
   className?: string;
@@ -33,7 +34,9 @@ const StyledSearchTextInput = styled.div`
 const TextInput = styled.input`
   margin-left: 0.5rem;
 
+  font-family: ${Fonts.SpoqaHanSans};
   font-size: 1.6rem;
+  letter-spacing: -0.02em;
 
   display: block;
   border: none;

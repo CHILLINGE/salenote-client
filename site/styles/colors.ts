@@ -8,6 +8,7 @@ const enum Colors {
   TextBackground = "#2A2D65",
   ContentBackground = "#131533",
   White = "#FFFFFF",
+  Active = "#343894",
 }
 
 export default Colors;
