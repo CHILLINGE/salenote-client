@@ -3,13 +3,18 @@ import { useCallback, useState } from "react";
 
 import { useAPI } from "../../gateway";
 
-export function useSearch(pageSize: number) {
+interface SearchOption {
+  pageSize: number;
+}
+
+export function useSearch({ pageSize }: SearchOption) {
   const api = useAPI();
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [offset, setOffset] = useState(1);
   const [data, setData] = useState<GameRecord>([]);
   const [totalCount, setTotalCount] = useState(0);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   async function search(name: string) {
     setSearchText(name);
@@ -18,11 +23,18 @@ export function useSearch(pageSize: number) {
   }
   const debounceSearchAPI = useCallback(
     debounce(async (name) => {
+      setIsLoading(true);
+      setIsEmpty(false);
       const ret = await api.search.searchByName(name, 0, pageSize);
+
+      if (ret.totalCount === 0) {
+        setIsEmpty(true);
+      }
 
       setData(ret.result);
       setTotalCount(ret.totalCount);
       setOffset(0);
+      setIsLoading(false);
     }, 200),
     [],
   );
@@ -40,6 +52,7 @@ export function useSearch(pageSize: number) {
 
   return {
     search,
+    isEmpty,
     data,
     searchText,
     resultCount: totalCount,

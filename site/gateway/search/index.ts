@@ -20,8 +20,15 @@ export interface SearchGateway {
 
 export function createMockSearchGateway(): SearchGateway {
   return {
-    async searchByName(_name, _offset, _size) {
+    async searchByName(name, _offset, _size) {
       await sleep(200);
+      if (name.length > 8) {
+        return {
+          totalCount: 0,
+          result: [],
+        };
+      }
+
       return {
         totalCount: 2,
         result: [
