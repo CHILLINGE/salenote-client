@@ -1,5 +1,5 @@
 import { sleep } from "../../utils/timing";
-import { GameGateway, GameInfoInput, GamePriceHistoryInput } from "./type";
+import { GameGateway, GameInfoInput, GamePriceHistoryInput, GamePriceHistoryOutput } from "./type";
 
 export function createMockGameGateway(): GameGateway {
   return {
@@ -21,9 +21,9 @@ export function createMockGameGateway(): GameGateway {
         },
       };
     },
-    async getGamePriceHistory(data: GamePriceHistoryInput) {
+    async getGamePriceHistory(data: GamePriceHistoryInput): Promise<GamePriceHistoryOutput> {
       await sleep(200);
-      const gamePriceHistory = [
+      const gamePriceHistoryList = [
         {
           zonedDateTime: "2022-03-12T15:06:07Z",
           currency: "KRW",
@@ -47,17 +47,10 @@ export function createMockGameGateway(): GameGateway {
         },
       ];
 
-      const calcAvgDiscountRate = () => {
-        return Math.floor(
-          gamePriceHistory.reduce((prev, cur) => prev + cur.discountPercent, 0) / gamePriceHistory.length,
-        );
-      };
-
       return {
         data: {
           id: data.id,
-          avgDiscountRate: calcAvgDiscountRate(),
-          gamePriceHistory,
+          gamePriceHistoryList,
         },
       };
     },
