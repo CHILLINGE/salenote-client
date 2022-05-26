@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { MdSearch } from "react-icons/md";
 import styled from "styled-components";
 
+import { Footer } from "./footer/Footer";
 import { SalenoteLogo } from "./SalenoteLogo";
 
 interface GameDetailLayoutProps {
@@ -26,12 +27,22 @@ export function GameDetailLayout(props: GameDetailLayoutProps) {
         </Link>
       </NavBar>
 
-      {props.children}
+      <ChildBox>{props.children}</ChildBox>
+
+      <Footer />
     </StyledSearchLayout>
   );
 }
 
-const StyledSearchLayout = styled.div``;
+const StyledSearchLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const ChildBox = styled.div`
+  flex-grow: 1;
+`;
 
 const NavBar = styled.nav`
   display: flex;
