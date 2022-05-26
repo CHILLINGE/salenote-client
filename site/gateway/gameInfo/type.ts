@@ -30,7 +30,7 @@ export interface GamePriceHistoryInput {
 export interface GamePriceHistoryOutput {
   data: {
     id: string;
-    gamePriceHistory: GamePriceHistory[];
+    gamePriceHistoryList: GamePriceHistory[];
   };
 }
 
