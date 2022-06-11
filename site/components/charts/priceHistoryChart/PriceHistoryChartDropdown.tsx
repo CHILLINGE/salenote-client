@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import styled, { css } from "styled-components";
 
-import Colors from "../../styles/colors";
+import Colors from "../../../styles/colors";
 
 export interface DropdownProps {
   year: string;

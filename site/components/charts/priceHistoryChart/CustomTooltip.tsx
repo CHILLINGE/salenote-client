@@ -1,7 +1,7 @@
 import { Point } from "@nivo/line";
 import styled from "styled-components";
 
-import Colors from "../../styles/colors";
+import Colors from "../../../styles/colors";
 
 interface CustomTooltipProps {
   point: Point;
