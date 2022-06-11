@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 
-import { decodeHistoryAvgDRate } from "./FormatHistoryAvgDRate";
+import { decodeHistoryAvgDRate } from "./formatting/FormatHistoryAvgDRate";
 import { HistoryAvgDiscountRateChart, HistoryAvgDProps } from "./HistoryAvgDiscountRateChart";
 
 export default {
