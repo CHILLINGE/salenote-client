@@ -31,8 +31,17 @@ export interface GamePriceHistoryOutput {
   };
 }
 
-export interface GamePriceHistory {
+export interface ResponseGamePriceHistory {
   zonedDateTime: string;
+  currency: string;
+  initialPrice: number;
+  finalPrice: number;
+  discountPercent: number;
+}
+
+export interface GamePriceHistory {
+  date: Date;
+  year: string;
   currency: string;
   initialPrice: number;
   finalPrice: number;

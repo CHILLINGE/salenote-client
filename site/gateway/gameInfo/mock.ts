@@ -1,3 +1,6 @@
+import { format } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
+
 import { sleep } from "../../utils/timing";
 import {
   GameGateway,
@@ -8,6 +11,13 @@ import {
 } from "./type";
 
 export function createMockGameGateway(): GameGateway {
+  function transTimezone(time: string) {
+    const date = new Date(time);
+    const timeZone = "Asia/Seoul";
+    const transTime = utcToZonedTime(date, timeZone);
+    return transTime;
+  }
+
   return {
     async getGameInfo(data: InputFormat) {
       await sleep(200);
@@ -29,64 +39,91 @@ export function createMockGameGateway(): GameGateway {
     },
     async getGamePriceHistory(data: InputFormat): Promise<GamePriceHistoryOutput> {
       await sleep(200);
-      const gamePriceHistoryList = [
+      const res = [
         {
-          zonedDateTime: "2022-03-12T15:06:07Z",
+          zonedDateTime: "2022-04-12T15:06:07Z",
           currency: "KRW",
           initialPrice: 1050000,
           finalPrice: 1050000,
           discountPercent: 0,
         },
         {
-          zonedDateTime: "2022-03-15T15:06:07Z",
+          zonedDateTime: "2021-12-31T15:06:07Z",
           currency: "KRW",
           initialPrice: 1050000,
           finalPrice: 70000,
-          discountPercent: 35,
+          discountPercent: 90,
         },
         {
-          zonedDateTime: "2022-04-07T15:06:07Z",
+          zonedDateTime: "2021-11-24T15:06:07Z",
           currency: "KRW",
           initialPrice: 1050000,
           finalPrice: 1050000,
-          discountPercent: 0,
+          discountPercent: 80,
         },
         {
-          zonedDateTime: "2022-04-10T15:06:07Z",
+          zonedDateTime: "2021-10-28T15:06:07Z",
+          currency: "KRW",
+          initialPrice: 1050000,
+          finalPrice: 1000000,
+          discountPercent: 70,
+        },
+        {
+          zonedDateTime: "2021-06-24T15:06:07Z",
+          currency: "KRW",
+          initialPrice: 1050000,
+          finalPrice: 80000,
+          discountPercent: 60,
+        },
+        {
+          zonedDateTime: "2020-12-23T17:01:55Z",
+          currency: "KRW",
+          initialPrice: 1050000,
+          finalPrice: 210000,
+          discountPercent: 50,
+        },
+        {
+          zonedDateTime: "2020-11-30T09:01:55Z",
+          currency: "KRW",
+          initialPrice: 1050000,
+          finalPrice: 1000000,
+          discountPercent: 40,
+        },
+        {
+          zonedDateTime: "2020-10-29T17:01:55Z",
+          currency: "KRW",
+          initialPrice: 1050000,
+          finalPrice: 1000000,
+          discountPercent: 30,
+        },
+        {
+          zonedDateTime: "2020-06-30T17:01:55Z",
+          currency: "KRW",
+          initialPrice: 1050000,
+          finalPrice: 1000000,
+          discountPercent: 20,
+        },
+        {
+          zonedDateTime: "2020-01-23T17:01:55Z",
           currency: "KRW",
           initialPrice: 1050000,
           finalPrice: 1000000,
           discountPercent: 10,
         },
-        {
-          zonedDateTime: "2022-07-12T15:06:07Z",
-          currency: "KRW",
-          initialPrice: 1050000,
-          finalPrice: 80000,
-          discountPercent: 20,
-        },
-        {
-          zonedDateTime: "2020-04-08T17:01:55Z",
-          currency: "KRW",
-          initialPrice: 1050000,
-          finalPrice: 210000,
-          discountPercent: 80,
-        },
-        {
-          zonedDateTime: "2020-04-08T17:01:55Z",
-          currency: "KRW",
-          initialPrice: 1050000,
-          finalPrice: 1050000,
-          discountPercent: 0,
-        },
-        {
-          zonedDateTime: "2020-04-08T17:01:55Z",
-          currency: "KRW",
-          initialPrice: 1050000,
-          finalPrice: 1050000,
-          discountPercent: 0,
-        },
       ];
+
+      const gamePriceHistoryList = res.map((priceHistory) => {
+        const date = transTimezone(priceHistory.zonedDateTime);
+
+        return {
+          date,
+          year: String(format(date, "yyyy")),
+          currency: priceHistory.currency,
+          initialPrice: priceHistory.initialPrice,
+          finalPrice: priceHistory.finalPrice,
+          discountPercent: priceHistory.discountPercent,
+        };
+      });
 
       return {
         data: {
