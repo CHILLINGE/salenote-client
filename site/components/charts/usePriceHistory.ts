@@ -1,4 +1,3 @@
-import { format, utcToZonedTime } from "date-fns-tz";
 import { useState } from "react";
 
 import { useAPI } from "../../gateway";
@@ -11,8 +10,8 @@ export function usePriceHistory() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [yearList, setYearList] = useState<string[]>([]);
   const [data, setData] = useState<chartDataFormat[]>([]);
-  const [yearFilteredData, setYearFilteredData] = useState<GamePriceHistoryList>([]);
-  const [responseData, setResponseData] = useState<GamePriceHistoryList>([]);
+  const [yearFilteredData, setYearFilteredData] = useState<GamePriceHistory[]>([]);
+  const [responseData, setResponseData] = useState<GamePriceHistory[]>([]);
   const [avgDiscountRate, setAvgDiscountRate] = useState<number>();
 
   async function getPriceHistory(id: string) {
@@ -21,14 +20,12 @@ export function usePriceHistory() {
 
   async function gamePriceAPI(id: string) {
     const res = await api.game.getGamePriceHistory({ id });
-
-    const formatedResult = res.data.gamePriceHistoryList.map(gamePriceHistoryFormatting);
+    const formatedResult = res.data.gamePriceHistoryList;
 
     setAvgDiscountRate(calcAvgDiscountRate(res.data.gamePriceHistoryList));
 
     //여러번 api 호출을 하지 않기 위해 responseData 설정 -> 이거 그냥 상수 값으로 할까? state로 두지 않고
     setResponseData(formatedResult);
-
     //data를 year별로 분리
     formatDataByYear("2022", formatedResult);
 
@@ -47,26 +44,6 @@ export function usePriceHistory() {
     setIsLoading(false);
   }
 
-  function transTimezone(time: string) {
-    const date = new Date(time);
-    const timeZone = "Asia/Seoul";
-    const transTime = utcToZonedTime(date, timeZone);
-    return transTime;
-  }
-
-  function gamePriceHistoryFormatting(priceHistory: GamePriceHistory) {
-    const date = transTimezone(priceHistory.zonedDateTime);
-
-    return {
-      date,
-      year: String(format(date, "yyyy")),
-      currency: priceHistory.currency,
-      initialPrice: priceHistory.initialPrice,
-      finalPrice: priceHistory.finalPrice,
-      discountPercent: priceHistory.discountPercent,
-    };
-  }
-
   function changeYear(selectedYear: string) {
     setYear(selectedYear);
 
@@ -74,7 +51,7 @@ export function usePriceHistory() {
     fetchData();
   }
 
-  function formatDataByYear(selectedYear: string, formatedResult: GamePriceHistoryList) {
+  function formatDataByYear(selectedYear: string, formatedResult: GamePriceHistory[]) {
     const result = formatedResult.filter((data) => data.year === selectedYear);
 
     setYearFilteredData(result);
@@ -84,7 +61,7 @@ export function usePriceHistory() {
     return Math.floor(res.reduce((prev, cur) => prev + cur.discountPercent, 0) / res.length);
   }
 
-  function makeYearList(formatedResult: GamePriceHistoryList) {
+  function makeYearList(formatedResult: GamePriceHistory[]) {
     const yearSet = new Set<string>();
 
     formatedResult.forEach((result) => yearSet.add(result.year));
@@ -120,15 +97,6 @@ export function usePriceHistory() {
     yearFilteredData,
   };
 }
-
-export type GamePriceHistoryList = Array<{
-  date: Date;
-  year: string;
-  currency: string;
-  initialPrice: number;
-  finalPrice: number;
-  discountPercent: number;
-}>;
 
 interface chartDataFormat {
   id: string;
