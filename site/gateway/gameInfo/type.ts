@@ -1,9 +1,10 @@
 export interface GameGateway {
-  getGameInfo(data: GameInfoInput): Promise<GameInfoOutput>;
-  getGamePriceHistory(data: GamePriceHistoryInput): Promise<GamePriceHistoryOutput>;
+  getGameInfo(data: InputFormat): Promise<GameInfoOutput>;
+  getGamePriceHistory(data: InputFormat): Promise<GamePriceHistoryOutput>;
+  getSeasonalDiscountList(data: InputFormat): Promise<GameSeasonalDiscountInfoOutput>;
 }
 
-export interface GameInfoInput {
+export interface InputFormat {
   id: string;
 }
 
@@ -23,10 +24,6 @@ export interface GameInfoOutput {
   };
 }
 
-export interface GamePriceHistoryInput {
-  id: string;
-}
-
 export interface GamePriceHistoryOutput {
   data: {
     id: string;
@@ -40,4 +37,25 @@ export interface GamePriceHistory {
   initialPrice: number;
   finalPrice: number;
   discountPercent: number;
+}
+
+export interface GameSeasonalDiscountInfoOutput {
+  id: string;
+  seasonalDiscountList: GameSeasonalDiscountInfo[];
+}
+
+export interface ResponseSeasonalDiscount {
+  id: string;
+  name: string;
+  key: string;
+  year: number;
+  startDate: string;
+  endDate: string;
+}
+
+export interface GameSeasonalDiscountInfo {
+  key: string;
+  year: number;
+  startDate: string;
+  endDate: string;
 }
