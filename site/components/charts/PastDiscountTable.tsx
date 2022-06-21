@@ -11,56 +11,26 @@ export interface PastDiscountTableProps {
 
 export function PastDiscountTable({ saleNameList, saleYearList, data }: PastDiscountTableProps) {
   const discountList = (year: number) => {
-    return data && data[year].map((item) => <td>{item}</td>);
+    return data && data[year].map((discountPercent, index) => <td key={index}>{discountPercent}</td>);
   };
 
   return (
     <StyledTable>
       <TableHead>
-        <td></td>
-        {saleNameList?.map((name) => (
-          <th>{name}</th>
-        ))}
+        <tr>
+          <td></td>
+          {saleNameList?.map((name) => (
+            <th key={name}>{name}</th>
+          ))}
+        </tr>
       </TableHead>
       <TableBody>
         {saleYearList?.map((year) => (
-          <tr>
+          <tr key={year}>
             <th>{year}</th>
             {discountList(year)}
           </tr>
         ))}
-        {/* <tr>
-          <th>2023</th>
-          <td>23</td>
-          <td>43</td>
-          <td>23</td>
-          <td>.</td>
-          <td>.</td>
-        </tr>
-        <tr>
-          <th>2022</th>
-          <td>.</td>
-          <td>.</td>
-          <td>2</td>
-          <td>53</td>
-          <td>67</td>
-        </tr>
-        <tr>
-          <th>2021</th>
-          <td>.</td>
-          <td>.</td>
-          <td>.</td>
-          <td>.</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th>2020</th>
-          <td>12</td>
-          <td>554</td>
-          <td>9</td>
-          <td>.</td>
-          <td>.</td>
-        </tr> */}
       </TableBody>
     </StyledTable>
   );
