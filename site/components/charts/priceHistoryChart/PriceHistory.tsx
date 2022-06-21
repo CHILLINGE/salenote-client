@@ -18,10 +18,6 @@ export function PriceHistory() {
     getPriceHistory("1");
   }, []);
 
-  useEffect(() => {
-    //여기서 fetchData를 해줘야하나?
-  }, [data]);
-
   return (
     <StyledPriceHistory>
       {isLoading ? (
@@ -32,7 +28,9 @@ export function PriceHistory() {
           <DropdownWrapper>
             <PriceHistoryChartDropdown year={year} yearList={yearList} changeYear={changeYear} />
           </DropdownWrapper>
-          <PriceHistoryChart data={data} />
+          <ChartWrapper>
+            <PriceHistoryChart data={data} />
+          </ChartWrapper>
         </>
       )}
     </StyledPriceHistory>
@@ -43,4 +41,16 @@ const StyledPriceHistory = styled.section``;
 
 const DropdownWrapper = styled.div`
   position: relative;
+  margin-left: 1.6rem;
+`;
+
+const ChartWrapper = styled.div`
+  margin-left: 1.6rem;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 `;
