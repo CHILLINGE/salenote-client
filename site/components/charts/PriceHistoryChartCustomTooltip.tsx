@@ -9,7 +9,6 @@ interface CustomTooltipProps {
 
 export function CustomTooltip({ point }: CustomTooltipProps) {
   const { data } = point;
-  console.log(point);
 
   return (
     <Tooltip>
