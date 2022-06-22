@@ -86,7 +86,7 @@ export function createMockGameGateway(): GameGateway {
           zonedDateTime: "2020-11-30T09:01:55Z",
           currency: "KRW",
           initialPrice: 1050000,
-          finalPrice: 1000000,
+          finalPrice: 700000,
           discountPercent: 40,
         },
         {
@@ -94,13 +94,13 @@ export function createMockGameGateway(): GameGateway {
           currency: "KRW",
           initialPrice: 1050000,
           finalPrice: 1000000,
-          discountPercent: 30,
+          discountPercent: 10,
         },
         {
           zonedDateTime: "2020-06-30T17:01:55Z",
           currency: "KRW",
           initialPrice: 1050000,
-          finalPrice: 1000000,
+          finalPrice: 900000,
           discountPercent: 20,
         },
         {
