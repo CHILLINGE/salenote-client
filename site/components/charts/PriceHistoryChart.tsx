@@ -2,7 +2,7 @@ import { ResponsiveLine, Serie } from "@nivo/line";
 import styled from "styled-components";
 
 import Colors from "../../styles/colors";
-import { CustomTooltip } from "./PriceHistoryChartCustomTooltip";
+import { PriceHistoryChartCustomTooltip } from "./PriceHistoryChartCustomTooltip";
 
 export interface PriceHistoryChartProps {
   data: Serie[];
@@ -57,7 +57,7 @@ export function PriceHistoryChart({ data }: PriceHistoryChartProps) {
         pointLabelYOffset={-12}
         legends={[]}
         enableSlices={"x"}
-        sliceTooltip={({ slice }) => <CustomTooltip point={slice.points[0]} />}
+        sliceTooltip={({ slice }) => <PriceHistoryChartCustomTooltip point={slice.points[0]} />}
         markers={[
           {
             axis: "y",

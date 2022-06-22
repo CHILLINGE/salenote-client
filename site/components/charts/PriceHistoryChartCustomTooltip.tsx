@@ -7,7 +7,7 @@ interface CustomTooltipProps {
   point: Point;
 }
 
-export function CustomTooltip({ point }: CustomTooltipProps) {
+export function PriceHistoryChartCustomTooltip({ point }: CustomTooltipProps) {
   const { data } = point;
 
   return (
