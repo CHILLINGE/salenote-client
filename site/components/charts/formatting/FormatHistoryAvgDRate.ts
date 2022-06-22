@@ -1,33 +1,22 @@
+import { GamePriceHistory } from "../../../gateway/gameInfo/type";
 import Colors from "../../../styles/colors";
 import { HistoryAvgDProps } from "../HistoryAvgDiscountRateChart";
 
-export interface HistoryAvgDRateResponse {
-  zonedDateTime: string;
-  currency: string;
-  initialPrice: number;
-  finalPrice: number;
-  discountPercent: number;
-}
-
-interface HistoryAvgDRate {
-  [key: number]: number;
-}
-
-export const decodeHistoryAvgDRate = (init: HistoryAvgDRateResponse[]): HistoryAvgDProps => ({
+export const decodeHistoryAvgDRate = (init: GamePriceHistory[]): HistoryAvgDProps => ({
   data: chartDataFormatting(init),
   keys: ["percentageCnt"],
 });
 
-const checkOverlapAndCnt = (obj: HistoryAvgDRate, percent: number) => {
+const checkOverlapAndCount = (obj: HistoryAvgDRate, percent: number) => {
   if (percent === 0) return;
   return obj[percent] ? obj[percent]++ : (obj[percent] = 1);
 };
 
-const groupedDiscountPercent = (init: HistoryAvgDRateResponse[]) => {
+const groupedDiscountPercent = (init: GamePriceHistory[]): HistoryAvgDRate => {
   const discountPercent: HistoryAvgDRate = {};
 
-  init.forEach((historyAvgDRate: HistoryAvgDRateResponse) =>
-    checkOverlapAndCnt(discountPercent, historyAvgDRate.discountPercent),
+  init.forEach((historyAvgDRate: GamePriceHistory) =>
+    checkOverlapAndCount(discountPercent, historyAvgDRate.discountPercent),
   );
 
   return discountPercent;
@@ -38,7 +27,7 @@ const findMaxPercentCnt = (percentObj: HistoryAvgDRate) => {
   return Math.max(...percentList);
 };
 
-const chartDataFormatting = (init: HistoryAvgDRateResponse[]) => {
+const chartDataFormatting = (init: GamePriceHistory[]): DataFormat[] => {
   const discountPercentObj = groupedDiscountPercent(init);
   const MaxPercentCnt = findMaxPercentCnt(discountPercentObj);
 
@@ -54,3 +43,14 @@ const chartDataFormatting = (init: HistoryAvgDRateResponse[]) => {
       percentageCntColor: MaxPercentCnt === discountPercentObj[Number(key)] ? Colors.Green : Colors.White,
     }));
 };
+
+export interface DataFormat {
+  percentage: string;
+  percentageCnt: number;
+  percentageCntColor: string;
+  [key: string]: string | number;
+}
+
+interface HistoryAvgDRate {
+  [key: number]: number;
+}

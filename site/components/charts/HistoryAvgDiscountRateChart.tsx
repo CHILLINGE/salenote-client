@@ -2,13 +2,10 @@ import { ResponsiveBar } from "@nivo/bar";
 import styled from "styled-components";
 
 import Colors from "../../styles/colors";
-
-export interface DataProp {
-  [key: string]: string | number;
-}
+import { DataFormat } from "./formatting/FormatHistoryAvgDRate";
 
 export interface HistoryAvgDProps {
-  data: DataProp[];
+  data: DataFormat[];
   keys: string[];
 }
 
