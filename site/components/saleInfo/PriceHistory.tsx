@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 
-import { CommonAccordion } from "../../common/CommonAccordion";
-import { usePriceHistory } from "../usePriceHistory";
-import { PriceHistoryChart } from "./PriceHistoryChart";
-import { PriceHistoryChartDropdown } from "./PriceHistoryChartDropdown";
+import { PriceHistoryChart } from "../charts/PriceHistoryChart";
+import { PriceHistoryChartDropdown } from "../charts/PriceHistoryChartDropdown";
+import { CommonAccordion } from "../common/CommonAccordion";
+import { usePriceHistory } from "./usePriceHistory";
 
 export function PriceHistory() {
   const { getPriceHistory, data, isLoading, year, changeYear, yearList } = usePriceHistory();

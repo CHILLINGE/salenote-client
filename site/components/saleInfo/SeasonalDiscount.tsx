@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { useAPI } from "../../gateway";
 import { GameSeasonalDiscountInfo } from "../../gateway/gameInfo/type";
+import { DataFormat, decodePastSeasonalDiscount } from "../charts/formatting/FormatPastSeasonalDiscount";
+import { PastDiscountTable } from "../charts/PastDiscountTable";
 import { CommonAccordion } from "../common/CommonAccordion";
-import { DataFormat, decodePastSeasonalDiscount } from "./formatting/FormatPastSeasonalDiscount";
-import { PastDiscountTable } from "./PastDiscountTable";
 import { usePriceHistory } from "./usePriceHistory";
 
 interface formatedData {

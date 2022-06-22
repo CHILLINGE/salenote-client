@@ -1,8 +1,8 @@
 import { ResponsiveLine, Serie } from "@nivo/line";
 import styled from "styled-components";
 
-import Colors from "../../../styles/colors";
-import { CustomTooltip } from "./CustomTooltip";
+import Colors from "../../styles/colors";
+import { CustomTooltip } from "./PriceHistoryChartCustomTooltip";
 
 export interface PriceHistoryChartProps {
   data: Serie[];
