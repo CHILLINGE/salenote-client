@@ -55,6 +55,13 @@ export function HistoryAvgDiscountRateChart({ data, keys }: HistoryAvgDProps) {
         barAriaLabel={function (e) {
           return e.id + ": " + e.formattedValue + " in discountRate: " + e.indexValue;
         }}
+        markers={[
+          {
+            axis: "y",
+            value: 0,
+            lineStyle: { stroke: Colors.White, strokeWidth: 1 },
+          },
+        ]}
       />
     </StyledRoot>
   );
