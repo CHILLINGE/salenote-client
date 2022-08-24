@@ -1,6 +1,6 @@
 # 당신의 Steam salenote
-Steam에서 판매하는 게임의 과거 할인 기간, 가격 데이터를 수집하고 이를 기반으로 다음 계절할인 참여 여부와 유저가 게임을 적절한 시기에 살 근거를 마련해줍니다.
 <img width="782" alt="image" src="https://user-images.githubusercontent.com/44703262/186368308-6344abe8-0e3f-4d45-8079-3ddadae2cde8.png">   
+Steam에서 판매하는 게임의 과거 할인 기간, 가격 데이터를 수집하고 이를 기반으로 다음 계절할인 참여 여부와 유저가 게임을 적절한 시기에 살 근거를 마련해줍니다.   
 종설 피그잼 : https://www.figma.com/file/nLqWO8oXVElj3ztcPSslOZ/%EC%A2%85%EC%84%A4-%ED%94%BC%EA%B7%B8%EC%9E%BC
    
    
